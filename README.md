@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="./src/images/logo.svg" alt="To Do" width="280"/>
+   <img src="./src/assets/logo.svg" alt="To Do" width="280"/>
 </p>
 
 <p align="center">
@@ -15,8 +15,8 @@
 ## Fotos
 
 <div>
-   <img src="./src/images/login.svg" width="400px" h="500px" />
-   <img src="./src/images/platform2.svg" width="400px" />
+   <img src="./src/assets/login.svg" width="400px" h="500px" />
+   <img src="./src/assets/platform2.svg" width="400px" />
 </div>
 
 ## 💻 Tecnologias
@@ -25,9 +25,9 @@ Este projeto foi feito utilizando as seguintes tecnologias:
 
 - [React](https://reactjs.org) -[Vite](https://vitejs.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind](https://tailwindcss.com/)
-- [GrapgQL](https://graphql.org/)
-- [GrapgCMS](https://graphcms.com/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [GraphQL](https://graphql.org/)
+- [GraphCMS](https://graphcms.com/)
 
 ## 🛠️ Executando
 

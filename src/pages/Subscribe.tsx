@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Logo } from "../components/Logo";
+import { Mockup } from "../components/Mockup";
 import { useCreateSubscriberMutation } from "../graphql/generated";
 
 export function Subscribe() {
@@ -25,7 +26,7 @@ export function Subscribe() {
   }
 
   return (
-    <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col items-center">
+    <div className="min-h-screen bg-blur bg-cover bg-no-repeat bg-center flex flex-col items-center">
       <div className="w-full max-w-[1100px] flex items-center justify-between my-20 mx-auto">
         <div className="max-w-[640px]">
           <Logo />
@@ -75,7 +76,7 @@ export function Subscribe() {
         </div>
       </div>
 
-      <img src="/src/assets/code-mockup.png" className="mt-10" alt="Mockup" />
+      <Mockup />
     </div>
   );
 }
