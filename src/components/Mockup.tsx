@@ -4,15 +4,13 @@ export function Mockup() {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       width="94%"
-      height="650"
       fill="none"
       viewBox="0 0 1216 650"
     >
       <mask
         id="mask0_24_690"
         style={{ maskType: "alpha" }}
-        width="1216"
-        height="650"
+        width="94%"
         x="0"
         y="0"
         maskUnits="userSpaceOnUse"
