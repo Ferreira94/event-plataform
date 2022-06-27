@@ -1,16 +1,21 @@
 import { ApolloProvider } from "@apollo/client";
-import { Router } from "./router";
+import { BrowserRouter } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
 
 import { client } from "./lib/apollo";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "./router";
+
+import { theme } from "./styles/theme";
 
 function App() {
   return (
     <div>
       <ApolloProvider client={client}>
-        <BrowserRouter>
-          <Router />
-        </BrowserRouter>
+        <ChakraProvider resetCSS theme={theme}>
+          <BrowserRouter>
+            <Router />
+          </BrowserRouter>
+        </ChakraProvider>
       </ApolloProvider>
     </div>
   );
