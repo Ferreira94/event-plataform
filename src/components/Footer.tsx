@@ -1,7 +1,12 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, Text, useBreakpointValue } from "@chakra-ui/react";
 import { LogoRocketseat } from "./LogoRocketseat";
 
 export function Footer() {
+  const isWideVersionTablet = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
+
   return (
     <Flex
       w="100%"

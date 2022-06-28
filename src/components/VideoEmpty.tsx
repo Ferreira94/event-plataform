@@ -13,7 +13,7 @@ export function VideoEmpty() {
         flexDirection="column"
       >
         <VideoCameraSlash size="48" />
-        <Text fontSize="1.5rem"> Selecione uma aula</Text>
+        <Text fontSize="1.5rem"> Selecione um episódio</Text>
       </Flex>
       <Footer />
     </Box>

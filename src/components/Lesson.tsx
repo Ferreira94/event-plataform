@@ -30,7 +30,10 @@ export function Lesson(props: ILessonProps) {
   });
 
   return (
-    <Link to={`/event/lesson/${props.slug}`} className="group">
+    <Link
+      to={isLessonAvailable ? `/event/lesson/${props.slug}` : ""}
+      className="group"
+    >
       <Text color="gray.300" fontSize={isWideVersionMobile ? "1rem" : "0.8rem"}>
         {availableDateFormatted}
       </Text>

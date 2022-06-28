@@ -26,7 +26,7 @@ export function Sidebar() {
         borderBottom="1px solid"
         borderColor="gray.600"
       >
-        Cronograma de Aulas
+        Episódios
       </Text>
 
       <Flex flexDirection="column" gap="8">

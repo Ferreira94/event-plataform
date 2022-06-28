@@ -1,14 +1,14 @@
 import {
   Flex,
   Icon,
-  useBreakpointValue,
+  Text,
   Drawer,
   DrawerBody,
   DrawerOverlay,
   DrawerContent,
-  useDisclosure,
   CloseButton,
-  Text,
+  useDisclosure,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { List } from "phosphor-react";
 import { Logo } from "./Logo";
@@ -41,7 +41,7 @@ export function Header() {
       <Drawer isOpen={isOpen} placement="bottom" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent
-          minH="100vh"
+          minH="100%"
           minW="100%"
           bgColor="gray.700"
           onClick={onClose}
@@ -58,11 +58,7 @@ export function Header() {
               as="header"
             >
               <Logo />
-
-              <Flex align="center" cursor="pointer" onClick={onClose}>
-                <Text fontSize="1rem">Aulas</Text>
-                <Icon as={CloseButton} fontSize="16" ml="1" color="blue.500" />
-              </Flex>
+              <Icon as={CloseButton} fontSize="16" ml="1" color="blue.500" />
             </Flex>
             <Sidebar />
           </DrawerBody>
