@@ -2,6 +2,7 @@ import { CheckCircle, Lock } from "phosphor-react";
 import { isPast, format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 import { Link, useParams } from "react-router-dom";
+import { Box, Flex, Text } from "@chakra-ui/react";
 
 interface ILessonProps {
   title: string;
@@ -25,46 +26,65 @@ export function Lesson(props: ILessonProps) {
 
   return (
     <Link to={`/event/lesson/${props.slug}`} className="group">
-      <span className="text-gray-300">{availableDateFormatted}</span>
+      <Text color="gray.300" fontSize="1rem">
+        {availableDateFormatted}
+      </Text>
 
-      <div
-        className={`roudend border border-gray-500 p-4 mt-2 group-hover:border-green-500 ${
-          isActiveLesson && "bg-green-500"
-        }`}
+      <Box
+        p="4"
+        mt="2"
+        borderRadius="4"
+        border="1px solid"
+        borderColor="gray.500"
+        bgColor={isActiveLesson ? "green.500" : "gray.700"}
+        _groupHover={{ borderColor: "green.500" }}
       >
-        <header className="flex items-center justify-between">
+        <Flex align="center" justify="space-between">
           {isLessonAvailable ? (
-            <span
-              className={`text-sm  font-medium flex items-center gap-2 ${
-                isActiveLesson ? "text-white" : "text-blue-500"
-              }`}
+            <Text
+              fontSize="0.8rem"
+              fontWeight="medium"
+              display="flex"
+              align="center"
+              gap="2"
+              color={isActiveLesson ? "white" : "blue.500"}
             >
               <CheckCircle size={20} />
               Conteúdo liberado
-            </span>
+            </Text>
           ) : (
-            <span className="text-sm text-orange-500 font-medium flex items-center gap-2">
+            <Text
+              fontSize="0.8rem"
+              fontWeight="medium"
+              display="flex"
+              align="center"
+              gap="2"
+              color={isActiveLesson ? "white" : "orange.500"}
+            >
               <Lock size={20} />
               Em breve
-            </span>
+            </Text>
           )}
-          <span
-            className={`text-xs rounded py=[0.125rem] px-2 border font-bold ${
-              isActiveLesson ? "border-white" : "border-green-300 "
-            }`}
+          <Text
+            fontSize="0.6rem"
+            py="0.125rem"
+            px="2"
+            border="1px solid"
+            borderColor={isActiveLesson ? "white" : "green.300"}
+            borderRadius="4"
           >
             {props.type === "live" ? "AO VIVO" : "AULA PRÁTICA"}
-          </span>
-        </header>
+          </Text>
+        </Flex>
 
-        <strong
-          className={` mt-5 block ${
-            isActiveLesson ? "text-white" : "text-gray-200"
-          }`}
+        <Text
+          mt="5"
+          fontSize="1rem"
+          color={isActiveLesson ? "white" : "gray.200"}
         >
           {props.title}
-        </strong>
-      </div>
+        </Text>
+      </Box>
     </Link>
   );
 }

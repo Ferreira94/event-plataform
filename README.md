@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="./src/assets/logo.svg" alt="To Do" width="280"/>
+   <img src="./public/assets/logo.svg" alt="To Do" width="280"/>
 </p>
 
 <p align="center">
@@ -15,8 +15,8 @@
 ## Fotos
 
 <div>
-   <img src="./src/assets/login.svg" width="400px" h="500px" />
-   <img src="./src/assets/platform2.svg" width="400px" />
+   <img src="./public/assets/login.svg" width="400px" h="500px" />
+   <img src="./public/assets/platform2.svg" width="400px" />
 </div>
 
 ## 💻 Tecnologias

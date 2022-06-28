@@ -1,10 +1,22 @@
+import { Flex, Text } from "@chakra-ui/react";
 import { LogoRocketseat } from "./LogoRocketseat";
 
 export function Footer() {
   return (
-    <footer className="w-full py-2 flex flex-col items-center bg-gray-900 border-t border-gray-600">
+    <Flex
+      w="100%"
+      py="2"
+      flexDirection="column"
+      align="center"
+      bgColor="gray.900"
+      borderTop="1px solid"
+      borderColor="gray.600"
+      as="footer"
+    >
       <LogoRocketseat />
-      <p className="text-[0.8rem]">Rocketseat - Todos os direitos reservados</p>
-    </footer>
+      <Text fontSize="0.8rem" as="strong">
+        Rocketseat - Todos os direitos reservados
+      </Text>
+    </Flex>
   );
 }

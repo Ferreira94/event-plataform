@@ -2,17 +2,24 @@ import { Header } from "../components/Header";
 import { Video } from "../components/Video";
 import { Sidebar } from "../components/Sidebar";
 import { useParams } from "react-router-dom";
+import { Flex, useBreakpointValue } from "@chakra-ui/react";
+import { VideoEmpty } from "../components/VideoEmpty";
 
 export function Event() {
   const { slug } = useParams<{ slug: string }>();
 
+  const isWideVersionMobile = useBreakpointValue({
+    base: false,
+    md: true,
+  });
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <Flex flexDirection="column" minH="100vh">
       <Header />
-      <main className="flex flex-1">
-        {slug ? <Video lessonSlug={slug} /> : <div className="flex-1"></div>}
-        <Sidebar />
-      </main>
-    </div>
+      <Flex flex="1" as="main">
+        {slug ? <Video lessonSlug={slug} /> : <VideoEmpty />}
+        {isWideVersionMobile && <Sidebar />}
+      </Flex>
+    </Flex>
   );
 }
