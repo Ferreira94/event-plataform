@@ -11,10 +11,16 @@ export function Sidebar() {
   });
 
   return (
-    <Box w="348px" bgColor="gray.700" p="6" as="aside">
+    <Box
+      w={isWideVersionMobile ? "348px" : "280px"}
+      bgColor="gray.700"
+      p={isWideVersionMobile ? "6" : "3"}
+      as="aside"
+      mx="auto"
+    >
       <Text
         fontWeight="bold"
-        fontSize="1.5rem"
+        fontSize={isWideVersionMobile ? "1.5rem" : "1rem"}
         pb="6"
         mb="6"
         borderBottom="1px solid"

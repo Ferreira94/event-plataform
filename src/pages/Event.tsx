@@ -8,9 +8,9 @@ import { VideoEmpty } from "../components/VideoEmpty";
 export function Event() {
   const { slug } = useParams<{ slug: string }>();
 
-  const isWideVersionMobile = useBreakpointValue({
+  const isWideVersionTablet = useBreakpointValue({
     base: false,
-    md: true,
+    lg: true,
   });
 
   return (
@@ -18,7 +18,7 @@ export function Event() {
       <Header />
       <Flex flex="1" as="main">
         {slug ? <Video lessonSlug={slug} /> : <VideoEmpty />}
-        {isWideVersionMobile && <Sidebar />}
+        {isWideVersionTablet && <Sidebar />}
       </Flex>
     </Flex>
   );

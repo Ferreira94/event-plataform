@@ -155,6 +155,7 @@ export function Video({ lessonSlug }: IVideoProps) {
             overflow="hidden"
             display="flex"
             alignItems="stretch"
+            justifyContent="space-between"
             gap="3"
             _hover={{ bgColor: "gray.600" }}
           >
@@ -177,7 +178,7 @@ export function Video({ lessonSlug }: IVideoProps) {
                 desenvolvimento
               </Text>
             </Box>
-            <Flex h="100%" p="3" align="center">
+            <Flex minH="100%" p="3" align="center">
               <CaretRight size={24} />
             </Flex>
           </Link>
@@ -189,6 +190,7 @@ export function Video({ lessonSlug }: IVideoProps) {
             overflow="hidden"
             display="flex"
             alignItems="stretch"
+            justifyContent="space-between"
             gap="3"
             _hover={{ bgColor: "gray.600" }}
           >
@@ -211,7 +213,7 @@ export function Video({ lessonSlug }: IVideoProps) {
                 desenvolvimento
               </Text>
             </Box>
-            <Flex h="100%" p="3" align="center">
+            <Flex minH="100%" p="3" align="center">
               <CaretRight size={24} />
             </Flex>
           </Link>

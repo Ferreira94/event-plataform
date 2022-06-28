@@ -2,7 +2,7 @@ import { CheckCircle, Lock } from "phosphor-react";
 import { isPast, format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 import { Link, useParams } from "react-router-dom";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, useBreakpointValue } from "@chakra-ui/react";
 
 interface ILessonProps {
   title: string;
@@ -24,9 +24,14 @@ export function Lesson(props: ILessonProps) {
     }
   );
 
+  const isWideVersionMobile = useBreakpointValue({
+    base: false,
+    md: true,
+  });
+
   return (
     <Link to={`/event/lesson/${props.slug}`} className="group">
-      <Text color="gray.300" fontSize="1rem">
+      <Text color="gray.300" fontSize={isWideVersionMobile ? "1rem" : "0.8rem"}>
         {availableDateFormatted}
       </Text>
 
@@ -41,32 +46,39 @@ export function Lesson(props: ILessonProps) {
       >
         <Flex align="center" justify="space-between">
           {isLessonAvailable ? (
-            <Text
-              fontSize="0.8rem"
-              fontWeight="medium"
-              display="flex"
-              align="center"
-              gap="2"
-              color={isActiveLesson ? "white" : "blue.500"}
-            >
-              <CheckCircle size={20} />
-              Conteúdo liberado
-            </Text>
+            <Flex align="center">
+              <CheckCircle size={isWideVersionMobile ? 20 : 16} />
+
+              <Text
+                fontSize={isWideVersionMobile ? "0.8rem" : "0.7rem"}
+                fontWeight="medium"
+                display="flex"
+                align="center"
+                gap="2"
+                ml="1"
+                color={isActiveLesson ? "white" : "blue.500"}
+              >
+                Conteúdo liberado
+              </Text>
+            </Flex>
           ) : (
-            <Text
-              fontSize="0.8rem"
-              fontWeight="medium"
-              display="flex"
-              align="center"
-              gap="2"
-              color={isActiveLesson ? "white" : "orange.500"}
-            >
-              <Lock size={20} />
-              Em breve
-            </Text>
+            <Flex align="center">
+              <Text
+                fontSize={isWideVersionMobile ? "0.8rem" : "0.7rem"}
+                fontWeight="medium"
+                display="flex"
+                align="center"
+                gap="2"
+                ml="1"
+                color={isActiveLesson ? "white" : "orange.500"}
+              >
+                <Lock size={isWideVersionMobile ? 20 : 16} />
+                Em breve
+              </Text>
+            </Flex>
           )}
           <Text
-            fontSize="0.6rem"
+            fontSize={isWideVersionMobile ? "0.6rem" : "0.5rem"}
             py="0.125rem"
             px="2"
             border="1px solid"
@@ -79,7 +91,7 @@ export function Lesson(props: ILessonProps) {
 
         <Text
           mt="5"
-          fontSize="1rem"
+          fontSize={isWideVersionMobile ? "1rem" : "0.8rem"}
           color={isActiveLesson ? "white" : "gray.200"}
         >
           {props.title}
