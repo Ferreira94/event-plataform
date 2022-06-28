@@ -14,14 +14,14 @@ import { useNavigate } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { Logo } from "../components/Logo";
 import { Mockup } from "../components/Mockup";
-import { useCreateSubscriberMutation } from "../graphql/generated";
+// import { useCreateSubscriberMutation } from "../graphql/generated";
 
 export function Subscribe() {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
-  const [createSubscriber, { loading }] = useCreateSubscriberMutation();
+  // const [createSubscriber, { loading }] = useCreateSubscriberMutation();
 
   const isWideVersionMobile = useBreakpointValue({
     base: false,
@@ -31,12 +31,16 @@ export function Subscribe() {
   async function handleSubscribe(event: FormEvent) {
     event?.preventDefault();
 
-    await createSubscriber({
-      variables: {
-        name,
-        email,
-      },
-    });
+    if (!name) {
+      return;
+    }
+
+    // await createSubscriber({
+    //   variables: {
+    //     name,
+    //     email,
+    //   },
+    // });
 
     navigate("event");
   }
@@ -66,36 +70,19 @@ export function Subscribe() {
             fontSize={isWideVersionMobile ? "2.5rem" : "1.5rem"}
             mt="2"
           >
-            Construa uma
+            Embarque nesse{" "}
+            <Heading color="blue.500" display="inline-block">
+              foguete
+            </Heading>{" "}
+            você também
           </Heading>{" "}
-          <Heading
-            color="blue.500"
-            display="inline-block"
-            fontSize={isWideVersionMobile ? "2.5rem" : "1.5rem"}
-          >
-            aplicação completa
-          </Heading>{" "}
-          <Heading
-            display="inline-block"
-            fontSize={isWideVersionMobile ? "2.5rem" : "1.5rem"}
-          >
-            do zero, com
-          </Heading>{" "}
-          <Heading
-            color="blue.500"
-            display="inline-block"
-            fontSize={isWideVersionMobile ? "2.2rem" : "1.5rem"}
-          >
-            React
-          </Heading>
           <Text
             mt="2"
             color="gray.200"
             fontSize={isWideVersionMobile ? "1.2rem" : "1rem"}
           >
-            Em apenas uma semana você vai dominar na prática uma das tecnologias
-            mais utilizadas e com alta demanda para acessar as melhores
-            oportunidades do mercado.
+            Reunimos oito devs para colocar seus códigos à prova e mostrar quem
+            merece vencer essa competição.
           </Text>
         </Box>
 
@@ -108,7 +95,8 @@ export function Subscribe() {
           mt={isWideVersionMobile ? "0" : "10"}
         >
           <Text fontWeight="bold" mb="6">
-            Inscreva-se gratuitamente
+            Nos diga seu nome e <br />
+            aperte os cintos
           </Text>
           <FormControl>
             <VStack spacing={4}>
@@ -122,7 +110,7 @@ export function Subscribe() {
                 placeholder="Seu nome completo"
                 onChange={(event) => setName(event.target.value)}
               />
-              <Input
+              {/* <Input
                 bgColor="gray.900"
                 borderRadius="4"
                 px="3"
@@ -131,7 +119,7 @@ export function Subscribe() {
                 type="email"
                 placeholder="Digite seu e-mail"
                 onChange={(event) => setEmail(event.target.value)}
-              />
+              /> */}
 
               <Button
                 colorScheme="green"
@@ -139,14 +127,14 @@ export function Subscribe() {
                 h="12"
                 borderRadius="4"
                 onClick={handleSubscribe}
-                disabled={loading}
+                // disabled={loading}
               >
                 <Text
                   textTransform="uppercase"
                   fontWeight="bold"
                   fontSize="1rem"
                 >
-                  Garantir minha vaga
+                  Embarcar
                 </Text>
               </Button>
             </VStack>
