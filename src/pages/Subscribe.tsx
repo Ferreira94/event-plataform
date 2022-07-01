@@ -32,6 +32,11 @@ export function Subscribe() {
     md: true,
   });
 
+  const isWideVersionTablet = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
+
   async function handleSubscribe(event: FormEvent) {
     event?.preventDefault();
 
@@ -65,7 +70,7 @@ export function Subscribe() {
         justify="space-between"
         my="10"
         mx="auto"
-        flexDirection={isWideVersionMobile ? "row" : "column"}
+        flexDirection={isWideVersionTablet ? "row" : "column"}
       >
         <Box maxW="640px" px="4">
           <Logo />
@@ -95,8 +100,8 @@ export function Subscribe() {
           bgColor="gray.700"
           border="1px solid #323238"
           borderRadius="4"
-          mr={isWideVersionMobile ? "4" : "0"}
-          mt={isWideVersionMobile ? "0" : "10"}
+          mr={isWideVersionTablet ? "4" : "0"}
+          mt={isWideVersionTablet ? "0" : "10"}
         >
           <Text fontWeight="bold" mb="6">
             Nos diga seu nome e <br />
