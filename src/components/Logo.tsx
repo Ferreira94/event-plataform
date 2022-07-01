@@ -1,15 +1,10 @@
 import { useBreakpointValue } from "@chakra-ui/react";
 
 export function Logo() {
-  const isWideVersionTablet = useBreakpointValue({
-    base: false,
-    lg: true,
-  });
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height={isWideVersionTablet ? "94" : "60"}
+      height="60"
       fill="none"
       viewBox="0 0 189 94"
     >

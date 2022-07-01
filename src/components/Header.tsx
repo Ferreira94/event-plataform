@@ -26,7 +26,8 @@ export function Header() {
       <Flex
         bgColor="gray.700"
         w="100%"
-        p="5"
+        px="5"
+        py="2"
         align="center"
         justify={isWideVersionTablet ? "center" : "space-between"}
         borderBottom="1px solid"

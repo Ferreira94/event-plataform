@@ -1,5 +1,11 @@
-mutation CreateSubscriber($name: String!, $email: String!) {
-  createSubscriber(data: { name: $name, email: $email }) {
+# mutation CreateSubscriber($name: String!, $email: String!) {
+#   createSubscriber(data: { name: $name, email: $email }) {
+#     id
+#   }
+# }
+
+mutation CreateSubscriber($name: String!) {
+  createSubscriber(data: { name: $name }) {
     id
   }
 }

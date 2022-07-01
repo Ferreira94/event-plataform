@@ -4152,7 +4152,6 @@ export type Subscriber = Node & {
   createdBy?: Maybe<User>;
   /** Get the document in other stages */
   documentInStages: Array<Subscriber>;
-  email: Scalars['String'];
   /** List of Subscriber versions */
   history: Array<Version>;
   /** The unique identifier */
@@ -4230,7 +4229,6 @@ export type SubscriberConnection = {
 
 export type SubscriberCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  email: Scalars['String'];
   name: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
@@ -4284,25 +4282,6 @@ export type SubscriberManyWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>;
   createdBy?: InputMaybe<UserWhereInput>;
-  email?: InputMaybe<Scalars['String']>;
-  /** All values containing the given string. */
-  email_contains?: InputMaybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  email_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  email_in?: InputMaybe<Array<Scalars['String']>>;
-  /** All values that are not equal to given value. */
-  email_not?: InputMaybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  email_not_contains?: InputMaybe<Scalars['String']>;
-  /** All values not ending with the given string */
-  email_not_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are not contained in given list. */
-  email_not_in?: InputMaybe<Array<Scalars['String']>>;
-  /** All values not starting with the given string. */
-  email_not_starts_with?: InputMaybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  email_starts_with?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -4381,8 +4360,6 @@ export type SubscriberManyWhereInput = {
 export enum SubscriberOrderByInput {
   CreatedAtAsc = 'createdAt_ASC',
   CreatedAtDesc = 'createdAt_DESC',
-  EmailAsc = 'email_ASC',
-  EmailDesc = 'email_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
   NameAsc = 'name_ASC',
@@ -4394,7 +4371,6 @@ export enum SubscriberOrderByInput {
 }
 
 export type SubscriberUpdateInput = {
-  email?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
 };
 
@@ -4488,25 +4464,6 @@ export type SubscriberWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>;
   createdBy?: InputMaybe<UserWhereInput>;
-  email?: InputMaybe<Scalars['String']>;
-  /** All values containing the given string. */
-  email_contains?: InputMaybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  email_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  email_in?: InputMaybe<Array<Scalars['String']>>;
-  /** All values that are not equal to given value. */
-  email_not?: InputMaybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  email_not_contains?: InputMaybe<Scalars['String']>;
-  /** All values not ending with the given string */
-  email_not_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are not contained in given list. */
-  email_not_in?: InputMaybe<Array<Scalars['String']>>;
-  /** All values not starting with the given string. */
-  email_not_starts_with?: InputMaybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  email_starts_with?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -4584,7 +4541,6 @@ export type SubscriberWhereInput = {
 
 /** References Subscriber record uniquely */
 export type SubscriberWhereUniqueInput = {
-  email?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
 };
 
@@ -5570,7 +5526,6 @@ export enum _SystemDateTimeFieldVariation {
 
 export type CreateSubscriberMutationVariables = Exact<{
   name: Scalars['String'];
-  email: Scalars['String'];
 }>;
 
 
@@ -5590,8 +5545,8 @@ export type GetLessonsQuery = { __typename?: 'Query', lessons: Array<{ __typenam
 
 
 export const CreateSubscriberDocument = gql`
-    mutation CreateSubscriber($name: String!, $email: String!) {
-  createSubscriber(data: {name: $name, email: $email}) {
+    mutation CreateSubscriber($name: String!) {
+  createSubscriber(data: {name: $name}) {
     id
   }
 }
@@ -5612,7 +5567,6 @@ export type CreateSubscriberMutationFn = Apollo.MutationFunction<CreateSubscribe
  * const [createSubscriberMutation, { data, loading, error }] = useCreateSubscriberMutation({
  *   variables: {
  *      name: // value for 'name'
- *      email: // value for 'email'
  *   },
  * });
  */

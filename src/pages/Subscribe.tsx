@@ -14,14 +14,18 @@ import { useNavigate } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { Logo } from "../components/Logo";
 import { Mockup } from "../components/Mockup";
-// import { useCreateSubscriberMutation } from "../graphql/generated";
+import {
+  useCreateSubscriberMutation,
+  useGetLessonsQuery,
+} from "../graphql/generated";
 
 export function Subscribe() {
   const [name, setName] = useState("");
   // const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
-  // const [createSubscriber, { loading }] = useCreateSubscriberMutation();
+  const { data } = useGetLessonsQuery();
+  const [createSubscriber, { loading }] = useCreateSubscriberMutation();
 
   const isWideVersionMobile = useBreakpointValue({
     base: false,
@@ -35,14 +39,14 @@ export function Subscribe() {
       return;
     }
 
-    // await createSubscriber({
-    //   variables: {
-    //     name,
-    //     email,
-    //   },
-    // });
+    await createSubscriber({
+      variables: {
+        name,
+        // email,
+      },
+    });
 
-    navigate("event");
+    navigate(`event/lesson/${data?.lessons[0].slug}`);
   }
 
   return (
@@ -127,7 +131,7 @@ export function Subscribe() {
                 h="12"
                 borderRadius="4"
                 onClick={handleSubscribe}
-                // disabled={loading}
+                disabled={loading}
               >
                 <Text
                   textTransform="uppercase"
