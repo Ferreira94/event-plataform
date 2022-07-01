@@ -23,11 +23,11 @@
 
 Este projeto foi feito utilizando as seguintes tecnologias:
 
-- [React](https://reactjs.org) -[Vite](https://vitejs.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [TailwindCSS](https://tailwindcss.com/)
 - [GraphQL](https://graphql.org/)
 - [GraphCMS](https://graphcms.com/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [React](https://reactjs.org)
+- [TypeScript](https://www.typescriptlang.org)
 
 ## 🛠️ Executando
 
